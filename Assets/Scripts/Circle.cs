@@ -1,39 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
+
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Circle : MonoBehaviour
+public class Circle : MonoBehaviour, IDragHandler
 {
     [SerializeField] private CircleVisual circleVisual;
     [SerializeField] private float speed = 5.0f;
     [SerializeField] private Vector2 trajectory;
     [SerializeField] private int scorePoints = 1;
+    [SerializeField] private Button buttonCircle;
     private Rigidbody2D rigidBody2D;
-    private Vector2 startPos;
-    private Vector2 endPos;
+    private Vector3 offset;
     private const string COLLISION_CIRCLE_TAG = "Circle";
+    public GameObject testCircle;
+    private bool isProcessingTouch = false;
+    private Collider2D circleCollider2d;
 
     private void Awake()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
+
+
+
+
     private void Start()
     {
-        Vector2 speedVector = GetRandomSpeedVectorNormalized();
-        rigidBody2D.velocity = speedVector * speed;
+        //Vector2 speedVector = GetRandomSpeedVectorNormalized();
+        //rigidBody2D.velocity = speedVector * speed;
+
     }
+
 
     public void SetColor(Color color)
     {
         circleVisual.SetColor(color);
     }
-
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -64,6 +68,7 @@ public class Circle : MonoBehaviour
 
     public void SetNewTrajectory(Vector2 trajectoryVector)
     {
+        trajectoryVector = trajectoryVector.normalized;
         rigidBody2D.velocity = trajectoryVector * speed;
         trajectory = trajectoryVector;
     }
@@ -76,19 +81,8 @@ public class Circle : MonoBehaviour
         return speedVector;
     }
 
-   
-
-    private void Update()
+    public void OnDrag(PointerEventData eventData)
     {
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began) 
-            {
-                GameInput.Instance.SetCircleSelected(this);
-
-            }
-        }
+        GameInput.Instance.SetCircleSelected(this);
     }
 }

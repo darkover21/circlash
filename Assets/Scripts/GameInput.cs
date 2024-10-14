@@ -13,7 +13,7 @@ public class GameInput : MonoBehaviour
     private Vector2 startPos;
     private Vector2 endPos;
     private Vector2 trajectory;
-    [SerializeField] private Circle circleSelected;
+    [SerializeField] private Circle circleSelected = null;
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class GameInput : MonoBehaviour
 
     private void Update()
     {
-         if (Input.touchCount > 0)
+         if (Input.touchCount > 0 )
          {
             Touch touch = Input.GetTouch(0);
 
@@ -30,6 +30,7 @@ public class GameInput : MonoBehaviour
             {
                 case TouchPhase.Began:
                     startPos = touch.position;
+                   
                     break;
                 case TouchPhase.Moved:
                     
@@ -40,10 +41,11 @@ public class GameInput : MonoBehaviour
                     if (circleSelected != null) 
                     {
                         circleSelected.SetNewTrajectory(trajectory);
-                        circleSelected.SetColor(Color.cyan);
-                        circleSelected = null;
+                        //circleSelected.SetColor(Color.cyan);
+                        circleSelected = null; 
+                        //Debug.Log("Trajectory: " + (endPos - startPos).normalized);
                     }
-                    //Debug.Log("Trajectory: " + (endPos - startPos).normalized);
+                   
                     break;
                 
             }

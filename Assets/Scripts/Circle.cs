@@ -1,36 +1,24 @@
 
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Circle : MonoBehaviour, IDragHandler
 {
+
     [SerializeField] private CircleVisual circleVisual;
     [SerializeField] private float speed = 5.0f;
     [SerializeField] private Vector2 trajectory;
     [SerializeField] private int scorePoints = 1;
-    [SerializeField] private Button buttonCircle;
     private Rigidbody2D rigidBody2D;
-    private Vector3 offset;
     private const string COLLISION_CIRCLE_TAG = "Circle";
-    public GameObject testCircle;
-    private bool isProcessingTouch = false;
-    private Collider2D circleCollider2d;
+ 
 
+   
     private void Awake()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
-    }
-
-
-
-
-
-    private void Start()
-    {
-        //Vector2 speedVector = GetRandomSpeedVectorNormalized();
-        //rigidBody2D.velocity = speedVector * speed;
-
     }
 
 
@@ -52,9 +40,11 @@ public class Circle : MonoBehaviour, IDragHandler
                 circleVisual.SetTextScore(scorePoints.ToString());
                 trajectory = (transform.position - collision.transform.position).normalized;
                 SetNewSpeedValue(scorePoints);
+                SoundManager.Instance.PlaySound(SoundManager.Instance.audioClipRefsSO.crashSound, Camera.main.transform.position, 0.3f);
             }
             else
             {
+                //SoundManager.Instance.PlaySound(SoundManager.Instance.audioClipRefsSO.gameOverSound, Camera.main.transform.position, 0.3f);
                 Destroy(gameObject);
             }
         }
@@ -62,7 +52,7 @@ public class Circle : MonoBehaviour, IDragHandler
 
     private void SetNewSpeedValue(int speedScale)
     {
-        speed -= speedScale * 0.25f;
+        speed -= speedScale;
         rigidBody2D.velocity = trajectory * speed;
     }
 
@@ -70,12 +60,13 @@ public class Circle : MonoBehaviour, IDragHandler
     {
         trajectoryVector = trajectoryVector.normalized;
         rigidBody2D.velocity = trajectoryVector * speed;
+        rigidBody2D.AddForce(trajectoryVector);
         trajectory = trajectoryVector;
     }
 
     public Vector2 GetRandomSpeedVectorNormalized()
     {
-        Vector2 speedVector = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
+        Vector2 speedVector = new Vector2(UnityEngine.Random.RandomRange(-1, 1), UnityEngine.Random.RandomRange(-1, 1));
         speedVector = speedVector.normalized;
         if (speedVector.magnitude == 0) speedVector = GetRandomSpeedVectorNormalized();
         return speedVector;

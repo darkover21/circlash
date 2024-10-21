@@ -28,6 +28,8 @@ public class CircleManager : MonoBehaviour
 
     private void Update()
     {
+        if (!GameManager.Instance.IsGamePlaying()) return;
+
         timeToInstantiate -= Time.deltaTime;
         if (timeToInstantiate < 0f) 
         {

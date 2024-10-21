@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68be9f3c92c5f18448319fd1d80e01ee, type: 3}
+  m_Name: AudioClipsRefsSO
+  m_EditorClassIdentifier: 
+  pushEffect:
+  - {fileID: 8300000, guid: c083be40eea86a749920c8f2a6a7bb04, type: 3}
+  - {fileID: 8300000, guid: 33300a35a13ea9148bab1e6adbc2a8c4, type: 3}
+  - {fileID: 8300000, guid: ca743424818c5cb46b5aa496b3b15b8d, type: 3}
+  crashSound: {fileID: 8300000, guid: 59b73ea9324701e4fb2f291e7d99b969, type: 3}
+  gameOverSound: {fileID: 8300000, guid: b0a23b1e4fd566f4899c10c8c7517e36, type: 3}
+  countdownSound: {fileID: 8300000, guid: fe016536d904dae448bc1a7a05dd80d3, type: 3}

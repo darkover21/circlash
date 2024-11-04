@@ -48,11 +48,13 @@ public class GameInput : MonoBehaviour
                     break;
                 case TouchPhase.Ended:
                     endPos = touch.position;
-                    trajectory = (endPos - startPos).normalized;
+                    trajectory = (endPos - startPos);
+                    float speed = Mathf.Sqrt(trajectory.magnitude)/10;
                     if (circleSelected != null) 
                     {
+                        //Debug.Log(speed);
+                        circleSelected.SetNewSpeedValue(speed);
                         circleSelected.SetNewTrajectory(trajectory);
-                        //circleSelected.SetColor(Color.cyan);
                         circleSelected = null;
                         SoundManager.Instance.PlaySound(SoundManager.Instance.audioClipRefsSO.pushEffect[2], Camera.main.transform.position, 0.3f);
                         //Debug.Log("Trajectory: " + (endPos - startPos).normalized);

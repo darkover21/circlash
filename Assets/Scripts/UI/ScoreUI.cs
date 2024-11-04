@@ -9,6 +9,6 @@ public class ScoreUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     public void SetScoreTextValue(string scoreValue)
     { 
-        scoreText.text = "Score: " + scoreValue + " pts.";
+        scoreText.text = "Puntuación " + scoreValue + " pts.";
     }
 }

@@ -39,7 +39,7 @@ public class Circle : MonoBehaviour, IDragHandler
                 circleVisual.SetRadius(scorePoints);
                 circleVisual.SetTextScore(scorePoints.ToString());
                 trajectory = (transform.position - collision.transform.position).normalized;
-                SetNewSpeedValue(scorePoints);
+                //SetNewSpeedValue(scorePoints);
                 SoundManager.Instance.PlaySound(SoundManager.Instance.audioClipRefsSO.crashSound, Camera.main.transform.position, 0.3f);
             }
             else
@@ -50,10 +50,9 @@ public class Circle : MonoBehaviour, IDragHandler
         }
     }
 
-    private void SetNewSpeedValue(int speedScale)
+    public void SetNewSpeedValue(float speedScale)
     {
-        speed -= speedScale;
-        rigidBody2D.velocity = trajectory * speed;
+        speed = speedScale;
     }
 
     public void SetNewTrajectory(Vector2 trajectoryVector)

@@ -40,8 +40,8 @@ public class GameOverUI : MonoBehaviour
 
     private void SetScoreTextsValue()
     {
-        finalScoreText.text = "Score results: " + ScoreManager.Instance.GetScore().ToString() + " pts.";
-        recordScoreText.text = "Record score: " + ScoreManager.Instance.GetRecordScore() + " pts.";
+        finalScoreText.text = "Puntuación: " + ScoreManager.Instance.GetScore().ToString() + " pts.";
+        recordScoreText.text = "Máxima puntuación: " + ScoreManager.Instance.GetRecordScore() + " pts.";
     }
 
     private void Show()

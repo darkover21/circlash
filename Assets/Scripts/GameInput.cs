@@ -47,12 +47,15 @@ public class GameInput : MonoBehaviour
                     
                     break;
                 case TouchPhase.Ended:
-                    endPos = touch.position;
-                    trajectory = (endPos - startPos);
-                    float speed = Mathf.Sqrt(trajectory.magnitude)/10;
+                    
+                    endPos = Camera.main.ScreenToWorldPoint(touch.position);
+                   
                     if (circleSelected != null) 
                     {
                         //Debug.Log(speed);
+                        startPos = circleSelected.transform.position;
+                        trajectory = (endPos - startPos);
+                        float speed = Mathf.Sqrt(trajectory.magnitude);
                         circleSelected.SetNewSpeedValue(speed);
                         circleSelected.SetNewTrajectory(trajectory);
                         circleSelected = null;

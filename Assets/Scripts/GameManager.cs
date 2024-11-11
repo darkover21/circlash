@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public event EventHandler OnStateChanged;
     public event EventHandler OnGamePaused;
     public event EventHandler OnGameUnPaused;
+    public event EventHandler OnLastFiveSecondsReached;
 
     private enum State
     {
@@ -65,6 +66,12 @@ public class GameManager : MonoBehaviour
         return 1f - (gamePlayingTimer / gamePlayingTimerMax);
     }
 
+    public float GetGamePlayingTimerToEnd()
+    {
+        //Debug.Log(1f - (gamePlayingTimer / gamePlayingTimerMax));
+        return  gamePlayingTimer;
+    }
+
     public bool IsGamePlaying()
     {
         return state == State.GamePlaying;
@@ -117,6 +124,9 @@ public class GameManager : MonoBehaviour
 
             case State.GamePlaying:
                 gamePlayingTimer -= Time.deltaTime;
+
+                if(gamePlayingTimer <= 5.0f)OnLastFiveSecondsReached?.Invoke(this, EventArgs.Empty);
+
                 if (gamePlayingTimer < 0)
                 {
                     state = State.GameOver;

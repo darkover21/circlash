@@ -14,7 +14,7 @@ public class CircleManager : MonoBehaviour
     }
 
     [SerializeField] private Transform circlePrefab;
-    [SerializeField] private float timeToInstantiateMax = 10.0f;
+    [SerializeField] private float timeToInstantiateMax = 5.0f;
     private float xMaxScreenLimit= 2.8f;
     private float yMaxScreenLimit = 5.0f;
     private float timeToInstantiate;

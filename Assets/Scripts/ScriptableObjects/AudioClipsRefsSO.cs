@@ -9,4 +9,5 @@ public class AudioClipsRefsSO : ScriptableObject
     public AudioClip crashSound;
     public AudioClip gameOverSound;
     public AudioClip countdownSound;
+    public AudioClip timeOut;
 }

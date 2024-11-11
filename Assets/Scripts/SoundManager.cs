@@ -23,6 +23,17 @@ public class SoundManager : MonoBehaviour
         isCountDownStarted = false;
     }
 
+    private void Start()
+    {
+        GameManager.Instance.OnLastFiveSecondsReached += GameManager_OnLastFiveSecondsReached;
+    }
+
+    private void GameManager_OnLastFiveSecondsReached(object sender, EventArgs e)
+    {
+        PlaySound(audioClipRefsSO.timeOut, Camera.main.transform.position, 0.3f);
+        Debug.Log("Last 5 seconds");
+    }
+
     private void Update()
     {
         if (!isCountDownStarted && GameManager.Instance.IsCountdownToStartActive()) 

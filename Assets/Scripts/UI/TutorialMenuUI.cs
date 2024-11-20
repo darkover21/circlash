@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialMenuUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Button okButton;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        okButton.onClick.AddListener(() => 
+            // Click
+            Loader.Load(Loader.Scene.MainScene));
     }
 }

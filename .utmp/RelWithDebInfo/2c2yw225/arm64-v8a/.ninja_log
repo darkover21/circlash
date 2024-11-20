@@ -1,5 +1,5 @@
 # ninja log v5
-2	213	7530627200977853	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	7835fee02e6b85f7
-213	511	7530627202987760	E:/GiteaGits/Circlash/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2c2yw225/obj/arm64-v8a/libswappywrapper.so	1751301a39ffc48f
-3	177	7530627872558266	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	7835fee02e6b85f7
-178	443	7530627874276890	E:/GiteaGits/Circlash/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2c2yw225/obj/arm64-v8a/libswappywrapper.so	1751301a39ffc48f
+74	539	7531504309986515	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	7835fee02e6b85f7
+539	1046	7531504313901359	E:/GiteaGits/Circlash/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2c2yw225/obj/arm64-v8a/libswappywrapper.so	1751301a39ffc48f
+2	225	7531506021233020	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	7835fee02e6b85f7
+225	527	7531506023528375	E:/GiteaGits/Circlash/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2c2yw225/obj/arm64-v8a/libswappywrapper.so	1751301a39ffc48f

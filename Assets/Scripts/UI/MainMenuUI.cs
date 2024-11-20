@@ -8,12 +8,26 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private Button playButton;
     [SerializeField] private Button exitButton;
 
+    private const string TUTORIAL_DONE = "IsTutorialDone";
+
     private void Awake()
     {
         playButton.onClick.AddListener(() =>
         {
-            // Click
-            Loader.Load(Loader.Scene.MainScene);
+            if (PlayerPrefs.HasKey(TUTORIAL_DONE))
+            {
+                // Click
+                Loader.Load(Loader.Scene.MainScene);
+            }
+            else 
+            {
+                PlayerPrefs.SetString(TUTORIAL_DONE, "done");
+                PlayerPrefs.Save();
+
+                // Click
+                Loader.Load(Loader.Scene.TutorialScene);
+            }
+            
         });
 
         exitButton.onClick.AddListener(() =>

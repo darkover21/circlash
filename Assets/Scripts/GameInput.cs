@@ -19,6 +19,7 @@ public class GameInput : MonoBehaviour
     [SerializeField] private Button onPauseButton;
 
     private Circle circleSelected = null;
+    [SerializeField] private CirclePointer circlePointer;
 
     private void Awake()
     {
@@ -37,10 +38,21 @@ public class GameInput : MonoBehaviour
          {
             Touch touch = Input.GetTouch(0);
 
+            Vector3 screenPosition = touch.position;
+
+            // Convierte a coordenadas del mundo.
+            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(screenPosition.x, screenPosition.y, Camera.main.nearClipPlane));
+            circlePointer.SetCirclePointerEnabled(circleSelected != null);
+            circlePointer.transform.position = worldPosition;
+            if (circleSelected != null)
+                circlePointer.SetLineRenderer(circleSelected.transform, circlePointer.transform);
+            Debug.Log(worldPosition);
+
             switch (touch.phase)
             {
                 case TouchPhase.Began:
                     startPos = touch.position;
+                    
                    
                     break;
                 case TouchPhase.Moved:
@@ -52,15 +64,19 @@ public class GameInput : MonoBehaviour
                    
                     if (circleSelected != null) 
                     {
+                        
                         //Debug.Log(speed);
                         startPos = circleSelected.transform.position;
                         trajectory = (endPos - startPos);
                         float speed = Mathf.Sqrt(trajectory.magnitude);
                         circleSelected.SetNewSpeedValue(speed);
                         circleSelected.SetNewTrajectory(trajectory);
+                        circleSelected.SetCircleSelected(false);
                         circleSelected = null;
                         SoundManager.Instance.PlaySound(SoundManager.Instance.audioClipRefsSO.pushEffect[2], Camera.main.transform.position, 0.3f);
+                        circlePointer.SetCirclePointerEnabled(false);
                         //Debug.Log("Trajectory: " + (endPos - startPos).normalized);
+
                     }
                    
                     break;

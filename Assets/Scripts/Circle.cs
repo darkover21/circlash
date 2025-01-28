@@ -1,5 +1,6 @@
 
 using System;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -22,10 +23,16 @@ public class Circle : MonoBehaviour, IDragHandler
     }
 
 
-    public void SetColor(Color color)
+    public void SetColor(UnityEngine.Color color)
     {
         circleVisual.SetColor(color);
     }
+
+    public void SetCircleSelected(bool selected)
+    {
+        circleVisual.SetSelected(selected);
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -74,5 +81,6 @@ public class Circle : MonoBehaviour, IDragHandler
     public void OnDrag(PointerEventData eventData)
     {
         GameInput.Instance.SetCircleSelected(this);
+        SetCircleSelected(true);
     }
 }

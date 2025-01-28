@@ -9,7 +9,14 @@ public class CircleVisual : MonoBehaviour
     [SerializeField] private SpriteRenderer circleSprite;
     [SerializeField] private float radius = 0.5f;
     [SerializeField] private TextMeshProUGUI circleText;
-  
+    [SerializeField] private GameObject selectedSprite;
+
+
+    private void Start()
+    {
+        SetSelected(false);
+    }
+
 
     public void SetColor(Color color)
     {
@@ -29,5 +36,10 @@ public class CircleVisual : MonoBehaviour
     public void SetTextScore(string scorePoints) 
     { 
         circleText.text = scorePoints;
+    }
+
+    public void SetSelected(bool selected) 
+    { 
+        selectedSprite.SetActive(selected);
     }
 }

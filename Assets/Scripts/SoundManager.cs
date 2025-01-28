@@ -30,7 +30,7 @@ public class SoundManager : MonoBehaviour
 
     private void GameManager_OnLastFiveSecondsReached(object sender, EventArgs e)
     {
-        PlaySound(audioClipRefsSO.timeOut, Camera.main.transform.position, 0.3f);
+        PlaySound(audioClipRefsSO.timeOut, Camera.main.transform.position, 0.1f);
         Debug.Log("Last 5 seconds");
     }
 

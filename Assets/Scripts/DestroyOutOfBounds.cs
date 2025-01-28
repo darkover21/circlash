@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DestroyOutOfBounds : MonoBehaviour
 {
-    private float xMaxScreenLimit = 2.8f;
-    private float yMaxScreenLimit = 5.0f;
+    private float xMaxScreenLimit = 4.8f;
+    private float yMaxScreenLimit = 7.0f;
     void Update()
     {
         if(transform.position.x > xMaxScreenLimit || transform.position.x < -xMaxScreenLimit)

@@ -21,12 +21,15 @@ pipeline{
                 script{
                 withEnv(["UNITY_PATH=${UNITY_INSTALLATION}"]){
                     bat '''
-                    "%UNITY_PATH%/Unity.exe" -quit -batchmode -projectPath % PROJECT_PATH% -executeMethod BuildScript.BuildWindows -logFile - I
+                    "%UNITY_PATH%/Unity.exe" -quit -batchmode -projectPath % PROJECT_PATH% -executeMethod BuildScript.BuildWindows -logFile - 
                     '''
                 }
 
                 stage( 'Deploy Windows') {
-                    when{expression (DEPLOY_WINDOWS == 'true'}}
+                    when{expression {DEPLOY_WINDOWS == 'true'}}
+                    steps{
+                        echo "Deploying Windows build..."
+                    }
                 }
             }
         }

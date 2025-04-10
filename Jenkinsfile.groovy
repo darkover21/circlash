@@ -1,7 +1,7 @@
 def PROJECT_NAME = "Circlash"
 def CUSTOM_WORKSPACE = "D:\\Gits\\${PROJECT_NAME}"
 def UNITY_VERSION = "2023.1.15f1"
-def UNITY INSTALLATION = "C:\\Program Files\\Unity\\Hub\\Editor\\${UNITY_VERSION}\\Editor"
+def UNITY_INSTALLATION = "C:\\Program Files\\Unity\\Hub\\Editor\\${UNITY_VERSION}\\Editor"
 
 pipeline{
     environment{

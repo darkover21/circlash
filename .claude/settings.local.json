@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Read(//c/Users/Equipo/.claude/**)",
+      "Bash(claude plugin:*)",
+      "Bash(gh repo:*)",
+      "Bash(git clone:*)",
+      "Read(//tmp/**)",
+      "Read(//tmp/game-studios/**)",
+      "Bash(cp -r /tmp/game-studios/.claude/agents \"d:/Gits/Circlash/.claude/\")",
+      "Bash(cp -r /tmp/game-studios/.claude/skills \"d:/Gits/Circlash/.claude/\")",
+      "Bash(cp -r /tmp/game-studios/.claude/hooks \"d:/Gits/Circlash/.claude/\")",
+      "Bash(cp -r /tmp/game-studios/.claude/rules \"d:/Gits/Circlash/.claude/\")",
+      "Bash(cp -r /tmp/game-studios/.claude/docs \"d:/Gits/Circlash/.claude/\")",
+      "Bash(gh auth:*)",
+      "Bash(where gh:*)",
+      "Read(//c/Program Files/GitHub CLI/**)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" auth status)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" repo view darkover21/circlash)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" repo view darkover21/circlash --json name,description,isPrivate,defaultBranchRef,openIssues,watchers)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" repo view darkover21/circlash --json name,description,isPrivate,defaultBranchRef,visibility,primaryLanguage,pushedAt)"
+    ]
+  }
+}

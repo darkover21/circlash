@@ -65,7 +65,7 @@ public class Circle : MonoBehaviour, IDragHandler
     public void SetNewTrajectory(Vector2 trajectoryVector)
     {
         trajectoryVector = trajectoryVector.normalized;
-        rigidBody2D.velocity = trajectoryVector * speed;
+        rigidBody2D.linearVelocity = trajectoryVector * speed;
         rigidBody2D.AddForce(trajectoryVector);
         trajectory = trajectoryVector;
     }
